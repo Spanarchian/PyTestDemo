@@ -1,13 +1,13 @@
 pipeline {
-  agent { docker { image 'python:3.7.2' } }
+  agent any
   stages {
     stage('test') {
-    parallel {
-    stage('build') {
-      steps {
-        sh 'pip install -r requirements.txt'
-      }
-    }
+      parallel {
+        stage('test') {
+          steps {
+            echo 'Testing'
+          }
+        }
         stage('thinking') {
           steps {
             echo 'I Think therefore I am'
